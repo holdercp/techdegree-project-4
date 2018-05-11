@@ -1,13 +1,11 @@
 # Tic-Tac-Toe
-[ ] Use the supplied mockup files and HTML snippets to guide you in building a Tic Tac Toe game. You can use jQuery or plain JavaScript to complete this project. Don't use an already programmed Tic Tac Toe plugin or library.
+[x] Use the supplied mockup files and HTML snippets to guide you in building a Tic Tac Toe game. You can use jQuery or plain JavaScript to complete this project. Don't use an already programmed Tic Tac Toe plugin or library.
 
 [ ] When the page loads, the startup screen should appear. Use the tictactoe-01-start.png mockup, and the start.txt HTML snippet to guide you.
 
 [ ] Add programming, so that when the player clicks the start button the start screen disappears, the board appears, and the game begins. Use the tictactoe-02-inprogress.png mockup,and the board.txt HTML snippet to guide you.
 
 ## Add the game play following these rules:
--------
-
 [ ] Play alternates between X and O.
 
 [ ] The current player is indicated at the top of the page -- the box with the symbol O or X is highlighted for the current player. You can do this by simply adding the class `.active` to the proper list item in the HTML. For example, if it's player one's turn, the HTML should look like this: `<li class="players active" id="player1">`
@@ -27,7 +25,6 @@
 [ ] Add programming so that when a player pushes the "New Game" button, the board appears again, empty, and a new game begins.
 
 ## Extra Credit
--------
 [ ] On the start screen, prompt the user add their name before the game starts
 
 [ ] Display the player’s name on the board screen during game play
