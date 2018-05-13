@@ -5,5 +5,3 @@ class Player {
     this.iconImg = `/img/${this.icon.toLowerCase()}.svg`;
   }
 }
-
-export default Player;
