@@ -4,7 +4,7 @@
 
 * [x] When the page loads, the startup screen should appear. Use the tictactoe-01-start.png mockup, and the start.txt HTML snippet to guide you.
 
-* [ ] Add programming, so that when the player clicks the start button the start screen disappears, the board appears, and the game begins. Use the tictactoe-02-inprogress.png mockup,and the board.txt HTML snippet to guide you.
+* [x] Add programming, so that when the player clicks the start button the start screen disappears, the board appears, and the game begins. Use the tictactoe-02-inprogress.png mockup,and the board.txt HTML snippet to guide you.
 
 ## Add the game play following these rules:
 

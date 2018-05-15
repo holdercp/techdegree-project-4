@@ -1,6 +1,7 @@
 (function runGame() {
-  const body = document.querySelector('body');
-  const ui = new UI();
+  let game;
 
-  body.innerHTML = ui.startHTML;
+  UI.hide('board');
+  UI.renderScreen(UI.startHTML, 'start');
+  UI.renderScreen(UI.winHTML, 'finish', true);
 }());
