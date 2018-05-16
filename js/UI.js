@@ -1,47 +1,43 @@
 const UI = {
   body: document.querySelector('body'),
+  activeView: document.getElementById('board'),
 
-  startHTML: `
-    <div class="screen screen-start" id="start">
-      <header>
-        <h1>Tic Tac Toe</h1>
-        <a href="#" class="button">Start game</a>
-      </header>
-    </div>`,
+  renderScreens() {
+    const startHTML = `
+      <div class="screen screen-start" id="start" style="display: none;">
+        <header>
+          <h1>Tic Tac Toe</h1>
+          <a href="#" class="button">Start game</a>
+        </header>
+      </div>`;
 
-  winHTML: `
-    <div class="screen screen-win" id="finish">
-      <header>
-        <h1>Tic Tac Toe</h1>
-        <p class="message"></p>
-        <a href="#" class="button">New game</a>
-      </header>
-    </div>`,
+    const winHTML = `
+      <div class="screen screen-win" id="finish" style="display: none;">
+        <header>
+          <h1>Tic Tac Toe</h1>
+          <p class="message"></p>
+          <a href="#" class="button">New game</a>
+        </header>
+      </div>`;
 
-  renderScreen(html, id, hide = false) {
-    this.body.insertAdjacentHTML('beforeend', html);
-    if (hide) this.hide(id);
-    this.startGameHandler(id);
+    this.body.insertAdjacentHTML('beforeend', startHTML);
+    this.body.insertAdjacentHTML('beforeend', winHTML);
   },
 
-  startGameHandler(id) {
-    const screen = document.getElementById(id);
+  startGameHandler(screen) {
     screen.addEventListener('click', (e) => {
       if (e.target.className === 'button') {
-        this.hide(id);
-        this.show('board');
+        this.displayView('board');
         game = new Game();
       }
     });
   },
 
-  show(id) {
-    const screen = document.getElementById(id);
-    screen.style = 'display: block;';
-  },
-
-  hide(id) {
-    const screen = document.getElementById(id);
-    screen.style = 'display: none;';
+  displayView(id) {
+    const view = document.getElementById(id);
+    view.style = 'display: block;';
+    this.activeView.style = 'display: none;';
+    this.activeView = view;
+    this.startGameHandler(view);
   },
 };
