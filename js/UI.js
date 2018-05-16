@@ -1,6 +1,6 @@
 const UI = {
   body: document.querySelector('body'),
-  activeView: document.getElementById('board'),
+  activeScreen: document.getElementById('board'),
 
   renderScreens() {
     const startHTML = `
@@ -27,17 +27,17 @@ const UI = {
   startGameHandler(screen) {
     screen.addEventListener('click', (e) => {
       if (e.target.className === 'button') {
-        this.displayView('board');
+        this.displayScreen('board');
         game = new Game();
       }
     });
   },
 
-  displayView(id) {
-    const view = document.getElementById(id);
-    view.style = 'display: block;';
-    this.activeView.style = 'display: none;';
-    this.activeView = view;
-    this.startGameHandler(view);
+  displayScreen(id) {
+    const screen = document.getElementById(id);
+    screen.style = 'display: block;';
+    this.activeScreen.style = 'display: none;';
+    this.activeScreen = screen;
+    this.startGameHandler(screen);
   },
 };
