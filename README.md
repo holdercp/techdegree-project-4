@@ -10,7 +10,7 @@
 
 * [x] Play alternates between X and O.
 
-* [ ] The current player is indicated at the top of the page -- the box with the symbol O or X is highlighted for the current player. You can do this by simply adding the class `.active` to the proper list item in the HTML. For example, if it's player one's turn, the HTML should look like this: `<li class="players active" id="player1">`
+* [x] The current player is indicated at the top of the page -- the box with the symbol O or X is highlighted for the current player. You can do this by simply adding the class `.active` to the proper list item in the HTML. For example, if it's player one's turn, the HTML should look like this: `<li class="players active" id="player1">`
 
 * [ ] When the current player mouses over an empty square on the board, it's symbol the X or O should appear on the square. You can do this using the `x.svg` or `o.svg` graphics (hint use JavaScript to set the background-image property for that box.)
 
