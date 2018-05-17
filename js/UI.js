@@ -55,7 +55,11 @@ const UI = {
 
   placeIconHandlers() {
     document.querySelectorAll('.box').forEach((box) => {
-      box.addEventListener('click', () => {
+      box.addEventListener('mouseover', (e) => {
+        e.target.style.backgroundImage = `url(${game.activePlayer.iconImg})`;
+      });
+
+      box.addEventListener('click', (e) => {
         game.switchPlayers();
         this.hilightPlayer(game.activePlayer);
       });
