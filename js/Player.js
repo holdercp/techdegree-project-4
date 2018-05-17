@@ -1,7 +1,5 @@
 class Player {
-  constructor(name, icon) {
-    this.name = name;
+  constructor(icon) {
     this.icon = icon;
-    this.iconImg = `/img/${this.icon.toLowerCase()}.svg`;
   }
 }

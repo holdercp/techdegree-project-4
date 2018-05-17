@@ -29,6 +29,8 @@ const UI = {
       if (e.target.className === 'button') {
         this.displayScreen('board');
         game = new Game();
+        this.hilightPlayer(game.activePlayer);
+        this.placeIconHandlers();
       }
     });
   },
@@ -39,5 +41,24 @@ const UI = {
     this.activeScreen.style = 'display: none;';
     this.activeScreen = screen;
     this.startGameHandler(screen);
+  },
+
+  hilightPlayer(player) {
+    if (player.icon === 'O') {
+      document.getElementById('player1').classList.add('active');
+      document.getElementById('player2').classList.remove('active');
+    } else {
+      document.getElementById('player2').classList.add('active');
+      document.getElementById('player1').classList.remove('active');
+    }
+  },
+
+  placeIconHandlers() {
+    document.querySelectorAll('.box').forEach((box) => {
+      box.addEventListener('click', () => {
+        game.switchPlayers();
+        this.hilightPlayer(game.activePlayer);
+      });
+    });
   },
 };

@@ -8,7 +8,7 @@
 
 ## Add the game play following these rules:
 
-* [ ] Play alternates between X and O.
+* [x] Play alternates between X and O.
 
 * [ ] The current player is indicated at the top of the page -- the box with the symbol O or X is highlighted for the current player. You can do this by simply adding the class `.active` to the proper list item in the HTML. For example, if it's player one's turn, the HTML should look like this: `<li class="players active" id="player1">`
 
