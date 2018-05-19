@@ -12,7 +12,7 @@
 
 * [x] The current player is indicated at the top of the page -- the box with the symbol O or X is highlighted for the current player. You can do this by simply adding the class `.active` to the proper list item in the HTML. For example, if it's player one's turn, the HTML should look like this: `<li class="players active" id="player1">`
 
-* [ ] When the current player mouses over an empty square on the board, it's symbol the X or O should appear on the square. You can do this using the `x.svg` or `o.svg` graphics (hint use JavaScript to set the background-image property for that box.)
+* [x] When the current player mouses over an empty square on the board, it's symbol the X or O should appear on the square. You can do this using the `x.svg` or `o.svg` graphics (hint use JavaScript to set the background-image property for that box.)
 
 * [ ] Players can only click on empty squares. When the player clicks on an empty square, attach the class box-filled-1 (for O) or box-filled-2 (for X) to the square. The CSS we're providing will automatically add the proper image to the square marking it as occupied.
 

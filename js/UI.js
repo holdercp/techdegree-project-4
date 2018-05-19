@@ -30,7 +30,7 @@ const UI = {
         this.displayScreen('board');
         game = new Game();
         this.hilightPlayer(game.activePlayer);
-        this.placeIconHandlers();
+        this.addHandlers();
       }
     });
   },
@@ -53,16 +53,23 @@ const UI = {
     }
   },
 
-  placeIconHandlers() {
-    document.querySelectorAll('.box').forEach((box) => {
-      box.addEventListener('mouseover', (e) => {
-        e.target.style.backgroundImage = `url(${game.activePlayer.iconImg})`;
-      });
+  clickBoxHandler(e) {
+    game.switchPlayers();
+    UI.hilightPlayer(game.activePlayer);
+  },
 
-      box.addEventListener('click', (e) => {
-        game.switchPlayers();
-        this.hilightPlayer(game.activePlayer);
-      });
+  hoverBoxHandler(e) {
+    if (e.type === 'mouseover') {
+      e.target.style.backgroundImage = `url(${game.activePlayer.iconImg})`;
+    }
+    if (e.type === 'mouseout') e.target.style.backgroundImage = '';
+  },
+
+  addHandlers() {
+    document.querySelectorAll('.box').forEach((box) => {
+      box.addEventListener('mouseover', this.hoverBoxHandler);
+      box.addEventListener('mouseout', this.hoverBoxHandler);
+      box.addEventListener('click', this.clickBoxHandler);
     });
   },
 };
