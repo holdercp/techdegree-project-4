@@ -54,15 +54,33 @@ const UI = {
   },
 
   clickBoxHandler(e) {
-    game.switchPlayers();
-    UI.hilightPlayer(game.activePlayer);
+    if (game.boxIsEmpty(e.target.id)) {
+      // Add UI classes
+      const boxFilledClass = game.activePlayer.icon === 'O' ? 'box-filled-1' : 'box-filled-2';
+      e.target.classList.add(boxFilledClass);
+
+      // Keep track of who occupies the box
+      game.occupyBox(e.target.id, game.activePlayer);
+
+      // Take care of rest of turn
+      game.switchPlayers();
+      UI.hilightPlayer(game.activePlayer);
+    }
   },
 
   hoverBoxHandler(e) {
-    if (e.type === 'mouseover') {
-      e.target.style.backgroundImage = `url(${game.activePlayer.iconImg})`;
+    if (game.boxIsEmpty(e.target.id)) {
+      switch (e.type) {
+        case 'mouseover':
+          e.target.style.backgroundImage = `url(${game.activePlayer.iconImg})`;
+          break;
+        case 'mouseout':
+          e.target.style.backgroundImage = '';
+          break;
+        default:
+          break;
+      }
     }
-    if (e.type === 'mouseout') e.target.style.backgroundImage = '';
   },
 
   addHandlers() {
