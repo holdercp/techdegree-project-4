@@ -16,7 +16,7 @@
 
 * [x] Players can only click on empty squares. When the player clicks on an empty square, attach the class box-filled-1 (for O) or box-filled-2 (for X) to the square. The CSS we're providing will automatically add the proper image to the square marking it as occupied.
 
-* [ ] The game ends when one player has three of their symbols in a row either horizontally, vertically or diagonally. If all of the squares are filled and no players have three in a row, the game is a tie.
+* [x] The game ends when one player has three of their symbols in a row either horizontally, vertically or diagonally. If all of the squares are filled and no players have three in a row, the game is a tie.
 
 * [ ] Add programming so that when the game ends, the board disappears and the game end screen appears. Use the `tictactoe-03-winner1.png` and `tictactoe-04-winner2.png` mockups, and the `win.txt` HTML snippet for guidance. Depending on the game results the final screen should:
 

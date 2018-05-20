@@ -62,6 +62,13 @@ const UI = {
       // Keep track of who occupies the box
       game.occupyBox(e.target.id, game.activePlayer);
 
+      // Check for win
+      if (game.checkForWin()) {
+        console.log('Win!');
+      } else if (game.checkForTie()) {
+        console.log('Tie!');
+      }
+
       // Take care of rest of turn
       game.switchPlayers();
       UI.hilightPlayer(game.activePlayer);
