@@ -18,11 +18,11 @@
 
 * [x] The game ends when one player has three of their symbols in a row either horizontally, vertically or diagonally. If all of the squares are filled and no players have three in a row, the game is a tie.
 
-* [ ] Add programming so that when the game ends, the board disappears and the game end screen appears. Use the `tictactoe-03-winner1.png` and `tictactoe-04-winner2.png` mockups, and the `win.txt` HTML snippet for guidance. Depending on the game results the final screen should:
+* [x] Add programming so that when the game ends, the board disappears and the game end screen appears. Use the `tictactoe-03-winner1.png` and `tictactoe-04-winner2.png` mockups, and the `win.txt` HTML snippet for guidance. Depending on the game results the final screen should:
 
-* [ ] Show the word "Winner" or the phrase "It's a Tie!"
+* [x] Show the word "Winner" or the phrase "It's a Tie!"
 
-* [ ] Add the appropriate class to the `<div>` for the winning screen: `<div class="screen screen-win" id="finish">` screen-win-one for player 1, screen-win-two for player two, or screen-win-tie if the game ends with no winner. For example, if player 1 wins, the HTML should look like this: `<div class="screen screen-win screen-win-one" id="finish">`
+* [x] Add the appropriate class to the `<div>` for the winning screen: `<div class="screen screen-win" id="finish">` screen-win-one for player 1, screen-win-two for player two, or screen-win-tie if the game ends with no winner. For example, if player 1 wins, the HTML should look like this: `<div class="screen screen-win screen-win-one" id="finish">`
 
 * [ ] Add programming so that when a player pushes the "New Game" button, the board appears again, empty, and a new game begins.
 
