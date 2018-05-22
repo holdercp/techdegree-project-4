@@ -24,6 +24,7 @@ class Game {
     this.activePlayer = this.activePlayer === this.playerO ? this.playerX : this.playerO;
   }
 
+  // Add the clicked box to both the player's occupied boxes and the game's
   occupyBox(boxId, player) {
     this.occupiedBoxes.push(boxId);
     player.occupyBox(boxId);
@@ -33,11 +34,15 @@ class Game {
     return !this.occupiedBoxes.includes(boxId);
   }
 
+  // Checks if the player has a winning sequence of occupied boxes
   checkForWin() {
-    return this.winningSequences.some(sequence =>
-      sequence.every(boxId => this.activePlayer.occupiedBoxes.includes(boxId)));
+    const winningSequence = sequence =>
+      sequence.every(boxId => this.activePlayer.occupiedBoxes.includes(boxId));
+
+    return this.winningSequences.some(winningSequence);
   }
 
+  // This should be called only after checkForWin()
   checkForTie() {
     return this.occupiedBoxes.length === 9;
   }
