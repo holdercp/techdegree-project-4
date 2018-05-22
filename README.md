@@ -24,7 +24,7 @@
 
 * [x] Add the appropriate class to the `<div>` for the winning screen: `<div class="screen screen-win" id="finish">` screen-win-one for player 1, screen-win-two for player two, or screen-win-tie if the game ends with no winner. For example, if player 1 wins, the HTML should look like this: `<div class="screen screen-win screen-win-one" id="finish">`
 
-* [ ] Add programming so that when a player pushes the "New Game" button, the board appears again, empty, and a new game begins.
+* [x] Add programming so that when a player pushes the "New Game" button, the board appears again, empty, and a new game begins.
 
 ## Extra Credit
 
