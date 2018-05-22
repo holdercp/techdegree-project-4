@@ -67,19 +67,15 @@ const UI = {
   },
 
   hilightPlayer(player) {
-    if (player.icon === 'O') {
-      document.getElementById('player1').classList.add('active');
-      document.getElementById('player2').classList.remove('active');
-    } else {
-      document.getElementById('player2').classList.add('active');
-      document.getElementById('player1').classList.remove('active');
-    }
+    const hilightedBox = document.querySelector('.active');
+    if (hilightedBox) hilightedBox.classList.remove('active');
+    document.getElementById(player.id).classList.add('active');
   },
 
   clickBoxHandler(e) {
     if (game.boxIsEmpty(e.target.id)) {
       // Add UI classes
-      const boxFilledClass = game.activePlayer.icon === 'O' ? 'box-filled-1' : 'box-filled-2';
+      const boxFilledClass = game.activePlayer.id === 'player1' ? 'box-filled-1' : 'box-filled-2';
       e.target.classList.add(boxFilledClass);
 
       // Keep track of who occupies the box
@@ -87,7 +83,7 @@ const UI = {
 
       // Check for win
       if (game.checkForWin()) {
-        UI.updateFinishScreen(game.activePlayer.icon === 'O' ? 'one' : 'two');
+        UI.updateFinishScreen(game.activePlayer.id === 'player1' ? 'one' : 'two');
         UI.displayScreen('finish');
       } else if (game.checkForTie()) {
         UI.updateFinishScreen('tie');

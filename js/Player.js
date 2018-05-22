@@ -1,7 +1,14 @@
 class Player {
   constructor(icon) {
     this.icon = icon.toUpperCase();
-    this.iconImg = this.icon === 'X' ? 'img/x.svg' : 'img/o.svg';
+
+    if (this.icon === 'O') {
+      this.id = 'player1';
+      this.iconImg = 'img/o.svg';
+    } else {
+      this.id = 'player2';
+      this.iconImg = 'img/x.svg';
+    }
     this.occupiedBoxes = [];
   }
 
