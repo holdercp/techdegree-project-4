@@ -24,24 +24,11 @@ const UI = {
     this.body.insertAdjacentHTML('afterbegin', this.startHTML);
   },
 
-  startGameHandler(screen) {
-    screen.addEventListener('click', (e) => {
-      if (e.target.className === 'button') {
-        UI.reset();
-        UI.displayScreen('board');
-        game = new Game();
-        UI.hilightPlayer(game.activePlayer);
-        UI.addHandlers();
-      }
-    });
-  },
-
   displayScreen(id) {
     const screen = document.getElementById(id);
     this.activeScreen.style = 'display: none;';
     screen.style = 'display: block;';
     this.activeScreen = screen;
-    if (screen.querySelector('.button')) this.startGameHandler(screen);
   },
 
   reset() {
@@ -70,6 +57,13 @@ const UI = {
     const hilightedBox = document.querySelector('.active');
     if (hilightedBox) hilightedBox.classList.remove('active');
     document.getElementById(player.id).classList.add('active');
+  },
+
+  startGameHandler() {
+    UI.reset();
+    UI.displayScreen('board');
+    game = new Game();
+    UI.hilightPlayer(game.activePlayer);
   },
 
   clickBoxHandler(e) {
@@ -111,11 +105,15 @@ const UI = {
     }
   },
 
-  addHandlers() {
+  addGameHandlers() {
     document.querySelectorAll('.box').forEach((box) => {
       box.addEventListener('mouseover', this.hoverBoxHandler);
       box.addEventListener('mouseout', this.hoverBoxHandler);
       box.addEventListener('click', this.clickBoxHandler);
+    });
+
+    document.querySelectorAll('.button').forEach((button) => {
+      button.addEventListener('click', this.startGameHandler);
     });
   },
 };
