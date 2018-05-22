@@ -31,17 +31,6 @@ const UI = {
     this.activeScreen = screen;
   },
 
-  reset() {
-    // Clears classes on finish screen
-    document.getElementById('finish').className = 'screen screen-win';
-
-    // Clear classes and bg imgs on boxes
-    document.querySelectorAll('.box').forEach((box) => {
-      box.className = 'box';
-      box.style.backgroundImage = '';
-    });
-  },
-
   updateFinishScreen(gameWinner) {
     const screen = document.getElementById('finish');
     const message = screen.querySelector('.message');
@@ -51,6 +40,17 @@ const UI = {
       message.textContent = 'Winner!';
     }
     screen.classList.add(`screen-win-${gameWinner}`);
+  },
+
+  reset() {
+    // Clears classes on finish screen
+    document.getElementById('finish').className = 'screen screen-win';
+
+    // Clear classes and bg imgs on boxes
+    document.querySelectorAll('.box').forEach((box) => {
+      box.className = 'box';
+      box.style.backgroundImage = '';
+    });
   },
 
   hilightPlayer(player) {
@@ -105,7 +105,7 @@ const UI = {
     }
   },
 
-  addGameHandlers() {
+  addHandlers() {
     document.querySelectorAll('.box').forEach((box) => {
       box.addEventListener('mouseover', this.hoverBoxHandler);
       box.addEventListener('mouseout', this.hoverBoxHandler);

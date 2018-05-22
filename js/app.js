@@ -3,6 +3,6 @@
   let game;
 
   UI.renderScreens();
-  UI.addGameHandlers();
+  UI.addHandlers();
   UI.displayScreen('start');
 }());
