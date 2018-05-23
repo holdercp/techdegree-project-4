@@ -34,4 +34,4 @@
 
 * [ ] Add programming to support playing against the computer. Only one player plays;the other is controlled by your programming.
 
-* [ ] Display the player’s name if they win the game
+* [x] Display the player’s name if they win the game

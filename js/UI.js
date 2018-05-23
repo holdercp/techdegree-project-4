@@ -47,7 +47,7 @@ const UI = {
     if (gameWinner === 'tie') {
       message.textContent = "It's a Tie!";
     } else {
-      message.textContent = 'Winner!';
+      message.textContent = `${game.activePlayer.name} Wins!`;
     }
     screen.classList.add(`screen-win-${gameWinner}`);
   },
