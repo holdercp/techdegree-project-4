@@ -6,6 +6,16 @@ const UI = {
     <div class="screen screen-start" id="start" style="display: none;">
       <header>
         <h1>Tic Tac Toe</h1>
+        <div class="player-name-container">
+          <div class="player-name">
+            <label id="player1Name" class="player-name__label">Player 1 Name</label>
+            <input type="text" class="player-name__input">
+          </div>
+          <div class="player-name">
+            <label id="player2Name" class="player-name__label">Player 2 Name</label>
+            <input type="text" class="player-name__input">
+          </div>
+        </div>
         <a href="#" class="button">Start game</a>
       </header>
     </div>`,
