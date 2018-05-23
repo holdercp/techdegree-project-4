@@ -228,3 +228,8 @@ h1 {
   height: 40px;
   padding: 0 1em;
 }
+
+#player1.active .player-name__display,
+#player2.active .player-name__display {
+  color: #fff;
+}

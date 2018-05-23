@@ -30,7 +30,7 @@
 
 * [x] On the start screen, prompt the user add their name before the game starts
 
-* [ ] Display the player’s name on the board screen during game play
+* [x] Display the player’s name on the board screen during game play
 
 * [ ] Add programming to support playing against the computer. Only one player plays;the other is controlled by your programming.
 

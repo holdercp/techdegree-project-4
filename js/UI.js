@@ -78,6 +78,11 @@ const UI = {
     if (player1Name) game.playerO.name = player1Name;
     if (player2Name) game.playerX.name = player2Name;
 
+    document.getElementById('player1').querySelector('.player-name__display').textContent =
+      game.playerO.name;
+    document.getElementById('player2').querySelector('.player-name__display').textContent =
+      game.playerX.name;
+
     UI.reset();
     UI.displayScreen('board');
     UI.hilightPlayer(game.activePlayer);
