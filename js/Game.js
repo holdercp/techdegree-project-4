@@ -1,8 +1,8 @@
 // Handles game logic
 class Game {
-  constructor() {
-    this.playerX = new Player('X');
+  constructor(computerPlayer) {
     this.playerO = new Player('O');
+    this.playerX = new Player('X', computerPlayer);
     this.activePlayer = this.playerO;
     this.occupiedBoxes = [];
     this.winningSequences = [

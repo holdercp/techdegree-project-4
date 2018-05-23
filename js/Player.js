@@ -1,6 +1,7 @@
 class Player {
-  constructor(icon) {
+  constructor(icon, computerPlayer = false) {
     this.icon = icon.toUpperCase();
+    this.computerPlayer = computerPlayer;
 
     if (this.icon === 'O') {
       this.id = 'player1';
@@ -8,7 +9,7 @@ class Player {
       this.iconImg = 'img/o.svg';
     } else {
       this.id = 'player2';
-      this.name = 'Player 2';
+      this.name = this.computerPlayer ? 'HAL' : 'Player 2';
       this.iconImg = 'img/x.svg';
     }
 

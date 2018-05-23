@@ -14,6 +14,9 @@ const UI = {
           <div class="player-name">
             <label for="player2Name" class="player-name__label">Player 2 Name</label>
             <input id="player2Name" type="text" class="player-name__input">
+
+            <label for="computerPlayer" class="computer-player__label">Computer Player</label>
+            <input id="computerPlayer" type="checkbox" class="computer-player__checkbox">
           </div>
         </div>
         <a href="#" class="button">Start game</a>
@@ -72,11 +75,12 @@ const UI = {
   startGameHandler() {
     const player1Name = document.getElementById('player1Name').value;
     const player2Name = document.getElementById('player2Name').value;
+    const computerPlayer = document.getElementById('computerPlayer').checked;
 
-    game = new Game();
+    game = new Game(computerPlayer);
 
     if (player1Name) game.playerO.name = player1Name;
-    if (player2Name) game.playerX.name = player2Name;
+    if (player2Name && !computerPlayer) game.playerX.name = player2Name;
 
     document.getElementById('player1').querySelector('.player-name__display').textContent =
       game.playerO.name;
@@ -127,6 +131,15 @@ const UI = {
     }
   },
 
+  computerPlayerHandler(e) {
+    const player2NameInput = document.getElementById('player2Name');
+    if (e.target.checked) {
+      player2NameInput.setAttribute('disabled', 'disabled');
+    } else {
+      player2NameInput.removeAttribute('disabled');
+    }
+  },
+
   addHandlers() {
     document.querySelectorAll('.box').forEach((box) => {
       box.addEventListener('mouseover', this.hoverBoxHandler);
@@ -137,5 +150,9 @@ const UI = {
     document.querySelectorAll('.button').forEach((button) => {
       button.addEventListener('click', this.startGameHandler);
     });
+
+    document
+      .getElementById('computerPlayer')
+      .addEventListener('change', this.computerPlayerHandler);
   },
 };

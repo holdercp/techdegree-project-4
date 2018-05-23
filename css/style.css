@@ -223,13 +223,18 @@ h1 {
 .player-name__input {
   border: none;
   border-radius: 4px;
-  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 2px 4px 0 hsla(0, 0%, 0%, 0.08);
   display: block;
   height: 40px;
+  margin-bottom: 0.5em;
   padding: 0 1em;
 }
 
 #player1.active .player-name__display,
 #player2.active .player-name__display {
+  color: #fff;
+}
+
+.computer-player__label {
   color: #fff;
 }
