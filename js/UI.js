@@ -8,12 +8,12 @@ const UI = {
         <h1>Tic Tac Toe</h1>
         <div class="player-name-container">
           <div class="player-name">
-            <label id="player1Name" class="player-name__label">Player 1 Name</label>
-            <input type="text" class="player-name__input">
+            <label for="player1Name" class="player-name__label">Player 1 Name</label>
+            <input id="player1Name" type="text" class="player-name__input">
           </div>
           <div class="player-name">
-            <label id="player2Name" class="player-name__label">Player 2 Name</label>
-            <input type="text" class="player-name__input">
+            <label for="player2Name" class="player-name__label">Player 2 Name</label>
+            <input id="player2Name" type="text" class="player-name__input">
           </div>
         </div>
         <a href="#" class="button">Start game</a>
@@ -70,9 +70,16 @@ const UI = {
   },
 
   startGameHandler() {
+    const player1Name = document.getElementById('player1Name').value;
+    const player2Name = document.getElementById('player2Name').value;
+
+    game = new Game();
+
+    if (player1Name) game.playerO.name = player1Name;
+    if (player2Name) game.playerX.name = player2Name;
+
     UI.reset();
     UI.displayScreen('board');
-    game = new Game();
     UI.hilightPlayer(game.activePlayer);
   },
 
