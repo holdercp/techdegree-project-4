@@ -77,6 +77,7 @@ const UI = {
     document.getElementById(boxId).style.pointerEvents = 'initial';
   },
 
+  // Prevents user from clicking on boxes when computer player's turn
   disableBox(boxId) {
     document.getElementById(boxId).style.pointerEvents = 'none';
   },
@@ -123,13 +124,17 @@ const UI = {
         UI.game.switchPlayers();
         UI.hilightPlayer(UI.game.activePlayer);
 
+        // If there is a computer player, simulate their click
         if (UI.game.activePlayer.computerPlayer) {
-          const boxId = UI.game.selectComputerMove();
+          // Prevent user from clicking boxes
           UI.game.openBoxes.forEach(UI.disableBox);
+
+          const boxId = UI.game.selectComputerMove();
           window.setTimeout(() => {
             document.getElementById(boxId).click();
           }, 500);
-        } else {
+        } else if (UI.game.playerX.computerPlayer) {
+          // Else if there is a computer player but it's not their turn then enable the boxes
           UI.game.openBoxes.forEach(UI.enableBox);
         }
       }
