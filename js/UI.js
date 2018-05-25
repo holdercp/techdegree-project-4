@@ -56,13 +56,14 @@ const UI = {
   },
 
   reset() {
-    // Clears classes on finish screen
+    // Resets classes on finish screen
     document.getElementById('finish').className = 'screen screen-win';
 
-    // Clear classes and bg imgs on boxes
+    // Reset classes, bg imgs, and enables clicks on boxes
     document.querySelectorAll('.box').forEach((box) => {
       box.className = 'box';
       box.style.backgroundImage = '';
+      box.style.pointerEvents = 'initial';
     });
   },
 
@@ -70,6 +71,14 @@ const UI = {
     const hilightedBox = document.querySelector('.active');
     if (hilightedBox) hilightedBox.classList.remove('active');
     document.getElementById(player.id).classList.add('active');
+  },
+
+  enableBox(boxId) {
+    document.getElementById(boxId).style.pointerEvents = 'initial';
+  },
+
+  disableBox(boxId) {
+    document.getElementById(boxId).style.pointerEvents = 'none';
   },
 
   startGameHandler() {
@@ -112,6 +121,16 @@ const UI = {
         // Take care of rest of turn
         game.switchPlayers();
         UI.hilightPlayer(game.activePlayer);
+
+        if (game.activePlayer.computerPlayer) {
+          const boxId = game.selectComputerMove();
+          game.openBoxes.forEach(UI.disableBox);
+          window.setTimeout(() => {
+            document.getElementById(boxId).click();
+          }, 500);
+        } else {
+          game.openBoxes.forEach(UI.enableBox);
+        }
       }
     }
   },
