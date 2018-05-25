@@ -50,7 +50,7 @@ const UI = {
     if (gameWinner === 'tie') {
       message.textContent = "It's a Tie!";
     } else {
-      message.textContent = `${game.activePlayer.name} Wins!`;
+      message.textContent = `${UI.game.activePlayer.name} Wins!`;
     }
     screen.classList.add(`screen-win-${gameWinner}`);
   },
@@ -86,60 +86,61 @@ const UI = {
     const player2Name = document.getElementById('player2Name').value;
     const computerPlayer = document.getElementById('computerPlayer').checked;
 
-    game = new Game(computerPlayer);
+    UI.game = new Game(computerPlayer);
 
-    if (player1Name) game.playerO.name = player1Name;
-    if (player2Name && !computerPlayer) game.playerX.name = player2Name;
+    if (player1Name) UI.game.playerO.name = player1Name;
+    if (player2Name && !computerPlayer) UI.game.playerX.name = player2Name;
 
     document.getElementById('player1').querySelector('.player-name__display').textContent =
-      game.playerO.name;
+      UI.game.playerO.name;
     document.getElementById('player2').querySelector('.player-name__display').textContent =
-      game.playerX.name;
+      UI.game.playerX.name;
 
     UI.reset();
     UI.displayScreen('board');
-    UI.hilightPlayer(game.activePlayer);
+    UI.hilightPlayer(UI.game.activePlayer);
   },
 
   clickBoxHandler(e) {
-    if (game.boxIsEmpty(e.target.id)) {
+    if (UI.game.boxIsEmpty(e.target.id)) {
       // Add UI classes
-      const boxFilledClass = game.activePlayer.id === 'player1' ? 'box-filled-1' : 'box-filled-2';
+      const boxFilledClass =
+        UI.game.activePlayer.id === 'player1' ? 'box-filled-1' : 'box-filled-2';
       e.target.classList.add(boxFilledClass);
 
       // Keep track of who occupies the box
-      game.occupyBox(e.target.id, game.activePlayer);
+      UI.game.occupyBox(e.target.id, UI.game.activePlayer);
 
       // Check for win
-      if (game.checkForWin()) {
-        UI.updateFinishScreen(game.activePlayer.id === 'player1' ? 'one' : 'two');
+      if (UI.game.checkForWin()) {
+        UI.updateFinishScreen(UI.game.activePlayer.id === 'player1' ? 'one' : 'two');
         UI.displayScreen('finish');
-      } else if (game.checkForTie()) {
+      } else if (UI.game.checkForTie()) {
         UI.updateFinishScreen('tie');
         UI.displayScreen('finish');
       } else {
         // Take care of rest of turn
-        game.switchPlayers();
-        UI.hilightPlayer(game.activePlayer);
+        UI.game.switchPlayers();
+        UI.hilightPlayer(UI.game.activePlayer);
 
-        if (game.activePlayer.computerPlayer) {
-          const boxId = game.selectComputerMove();
-          game.openBoxes.forEach(UI.disableBox);
+        if (UI.game.activePlayer.computerPlayer) {
+          const boxId = UI.game.selectComputerMove();
+          UI.game.openBoxes.forEach(UI.disableBox);
           window.setTimeout(() => {
             document.getElementById(boxId).click();
           }, 500);
         } else {
-          game.openBoxes.forEach(UI.enableBox);
+          UI.game.openBoxes.forEach(UI.enableBox);
         }
       }
     }
   },
 
   hoverBoxHandler(e) {
-    if (game.boxIsEmpty(e.target.id)) {
+    if (UI.game.boxIsEmpty(e.target.id)) {
       switch (e.type) {
         case 'mouseover':
-          e.target.style.backgroundImage = `url(${game.activePlayer.iconImg})`;
+          e.target.style.backgroundImage = `url(${UI.game.activePlayer.iconImg})`;
           break;
         case 'mouseout':
           e.target.style.backgroundImage = '';
